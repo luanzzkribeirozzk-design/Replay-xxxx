@@ -1,14 +1,17 @@
 package com.replayx.app.ui
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.replayx.app.R
 import com.replayx.app.util.ShizukuHelper
 import kotlinx.coroutines.*
+import rikka.shizuku.Shizuku
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,6 +25,16 @@ class OtimizacaoActivity : AppCompatActivity() {
     private lateinit var tvStatus: TextView
     private lateinit var progressBar: ProgressBar
     private lateinit var tvContador: TextView
+    private val SHIZUKU_CODE = 2001
+    private val permissionListener = Shizuku.OnRequestPermissionResultListener { requestCode, grantResult ->
+        if (requestCode == SHIZUKU_CODE) {
+            if (grantResult == PackageManager.PERMISSION_GRANTED) {
+                log("[SYS] SHIZUKU_PERMISSAO_CONCEDIDA — toque no botão novamente", isSystem = true)
+            } else {
+                log("[ERR] SHIZUKU_PERMISSAO_NEGADA", isFail = true)
+            }
+        }
+    }
 
     private val OPT_COMMANDS = listOf(
         // ── FPS máximo ──
@@ -156,16 +169,53 @@ class OtimizacaoActivity : AppCompatActivity() {
 
         btnVoltar.setOnClickListener { finish() }
 
+        Shizuku.addRequestPermissionResultListener(permissionListener)
+
         btnOtimizar.setOnClickListener {
-            runCommands(OPT_COMMANDS, isOptimize = true)
+            if (checkShizuku()) runCommands(OPT_COMMANDS, isOptimize = true)
         }
 
         btnReset.setOnClickListener {
-            runCommands(RESET_COMMANDS, isOptimize = false)
+            if (checkShizuku()) runCommands(RESET_COMMANDS, isOptimize = false)
         }
 
         log("root@devwill:~/ otimizador_ff", isSystem = true)
         log("[SYS] Pronto. Selecione uma ação abaixo.", isSystem = true)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Shizuku.removeRequestPermissionResultListener(permissionListener)
+    }
+
+    private fun checkShizuku(): Boolean {
+        return try {
+            if (!Shizuku.pingBinder()) {
+                log("[ERR] SHIZUKU_NAO_ATIVO", isFail = true)
+                AlertDialog.Builder(this)
+                    .setTitle("Shizuku necessário")
+                    .setMessage("O Shizuku não está ativo.\n\n1. Abra o app Shizuku\n2. Ative o serviço\n3. Volte aqui e tente de novo")
+                    .setPositiveButton("Abrir Shizuku") { _, _ ->
+                        try {
+                            val intent = packageManager.getLaunchIntentForPackage("moe.shizuku.privileged.api")
+                            if (intent != null) startActivity(intent)
+                            else log("[ERR] SHIZUKU_NAO_INSTALADO", isFail = true)
+                        } catch (e: Exception) {
+                            log("[ERR] Instale o Shizuku primeiro", isFail = true)
+                        }
+                    }
+                    .setNegativeButton("Cancelar", null)
+                    .show()
+                false
+            } else if (Shizuku.checkSelfPermission() != PackageManager.PERMISSION_GRANTED) {
+                log("[SYS] SHIZUKU_SOLICITANDO_PERMISSAO", isSystem = true)
+                Shizuku.requestPermission(SHIZUKU_CODE)
+                false
+            } else true
+        } catch (ex: Exception) {
+            log("[ERR] SHIZUKU: " + ex.message.orEmpty(), isFail = true)
+            false
+        }
     }
 
     private fun runCommands(commands: List<String>, isOptimize: Boolean) {
