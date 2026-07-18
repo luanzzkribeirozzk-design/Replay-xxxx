@@ -286,14 +286,6 @@ class OtimizacaoActivity : AppCompatActivity() {
         val cur = tvLog.text.toString()
         val next = if (cur.isEmpty()) line else "$cur\n$line"
         tvLog.text = next
-
-        // colorir a última linha (workaround simples: usamos SpannableString completo)
-        val color = when {
-            isOk -> 0xFF00E676.toInt()
-            isFail -> 0xFFFF5252.toInt()
-            isSystem -> 0xFFFFD700.toInt()
-            else -> 0xFFCCCCCC.toInt()
-        }
         tvLog.setTextColor(0xFFCCCCCC.toInt()) // base; a coloração por linha requer Spannable
         scrollLog.post { scrollLog.fullScroll(android.view.View.FOCUS_DOWN) }
     }
