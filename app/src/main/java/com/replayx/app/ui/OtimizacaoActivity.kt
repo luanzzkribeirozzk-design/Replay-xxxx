@@ -208,8 +208,8 @@ class OtimizacaoActivity : AppCompatActivity() {
             }
 
             log("--------------------------------", isSystem = true)
-            val emoji = if (isOptimize) "🚀" else "🔄"
-            log("$emoji $label CONCLUÍDO! ✔ $ok  ✘ $fail", isSystem = true)
+            val icone = if (isOptimize) "▲" else "↺"
+            log("$icone $label CONCLUÍDO! ✔ $ok  ✘ $fail", isSystem = true)
             log(">>> REINICIE O DISPOSITIVO para aplicar todas as mudanças.", isSystem = true)
             log("--------------------------------", isSystem = true)
 
@@ -224,7 +224,8 @@ class OtimizacaoActivity : AppCompatActivity() {
     private fun setBusy(busy: Boolean) {
         btnOtimizar.isEnabled = !busy
         btnReset.isEnabled = !busy
-        btnVoltar.isEnabled = !busy
+        // btnVoltar continua sempre habilitado: o usuário pode sair a
+        // qualquer momento, mesmo com comandos em execução.
         progressBar.visibility = if (busy) View.VISIBLE else View.INVISIBLE
         if (busy) tvStatus.text = "⚙ EXECUTANDO..."
     }

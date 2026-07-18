@@ -193,10 +193,21 @@ public class ShizukuHelper {
             Process p = (Process) target.invoke(null, new Object[]{args, null, null});
             byte[] outB = p.getInputStream().readAllBytes();
             byte[] errB = p.getErrorStream().readAllBytes();
-            p.waitFor();
+            int exitCode = p.waitFor();
             String out = new String(outB).trim();
             String err = new String(errB).trim();
-            return out.isEmpty() ? (err.isEmpty() ? "ERR_NO_OUTPUT" : err) : out;
+
+            // Sucesso = exit code 0, mesmo sem nenhuma linha no stdout.
+            // A maioria dos "settings put" não imprime nada quando dá certo,
+            // então ausência de saída não pode ser tratada como erro.
+            if (exitCode == 0) {
+                return out.isEmpty() ? "OK" : out;
+            }
+
+            // Só cai aqui se o comando realmente falhou (exit code != 0)
+            if (!err.isEmpty()) return "ERR: " + err;
+            if (!out.isEmpty()) return "ERR: " + out;
+            return "ERR_EXIT_" + exitCode;
         } catch (Exception e) {
             return "ERR: " + e.getMessage();
         }
