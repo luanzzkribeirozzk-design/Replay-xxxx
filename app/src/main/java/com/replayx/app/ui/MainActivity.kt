@@ -75,6 +75,9 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding.btnSensiConfig.setOnClickListener {
             startActivity(Intent(this, SensiActivity::class.java))
         }
+        binding.btnOtimizador.setOnClickListener {
+            startActivity(Intent(this, OtimizacaoActivity::class.java))
+        }
     }
 
     private fun startKeyTimer(user: String, days: Int, minutes: Int, firstUsedSec: Long, status: String, pausedAtSec: Long) {

@@ -4,6 +4,73 @@
     android:layout_height="match_parent"
     android:background="#080800">
 
+    <!-- BOTÃO FIXO SENSI CONFIG NO RODAPÉ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="#E6050500"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="16dp"
+        android:elevation="8dp"
+        android:z="10">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#BF00FF"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnSensiConfig"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="⚙  SENSI CONFIG"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_primary"
+            android:stateListAnimator="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configurador de Sensibilidade · DEV WILL TECHX"
+            android:textColor="#7B00AA"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#1AEAFF00"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnOtimizador"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="⚡  OTIMIZADOR FF"
+            android:textColor="#EAFF00"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_clear"
+            android:stateListAnimator="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FPS Máximo · 54 Comandos · Free Fire &amp; FF MAX"
+            android:textColor="#7B00AA"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp" />
+
     <com.replayx.app.ui.ParticleView
         android:id="@+id/particleView"
         android:layout_width="match_parent"
@@ -218,34 +285,7 @@
                 android:textSize="12sp"
                 android:textStyle="bold"
                 android:background="@drawable/btn_clear"
-                android:stateListAnimator="@null"
-                android:layout_marginBottom="10dp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#BF00FF"
-                android:layout_marginBottom="10dp" />
-
-            <Button
-                android:id="@+id/btnSensiConfig"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:text="⚙  SENSI CONFIG"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:background="@drawable/btn_primary"
                 android:stateListAnimator="@null" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Configurador de Sensibilidade · DEV WILL TECHX"
-                android:textColor="#7B00AA"
-                android:textSize="10sp"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp" />
 
         </LinearLayout>
 

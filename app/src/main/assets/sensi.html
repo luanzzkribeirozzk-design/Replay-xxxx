@@ -61,8 +61,8 @@ body{font-family:'Rajdhani',sans-serif;background:var(--bg0);color:var(--t1);min
 .gb-bal:hover{border-color:rgba(234,255,0,.6);background:rgba(234,255,0,.15);box-shadow:0 8px 24px rgba(234,255,0,.15)}
 .gb-def{border-color:rgba(255,242,0,.3);color:var(--c2);background:rgba(255,242,0,.07)}
 .gb-def:hover{border-color:rgba(255,242,0,.6);background:rgba(255,242,0,.15);box-shadow:0 8px 24px rgba(255,242,0,.15)}
-.gb-pack{border-color:rgba(255,234,0,.25);color:var(--y2);background:rgba(255,234,0,.06)}
-.gb-pack:hover{border-color:rgba(255,234,0,.5);background:rgba(255,234,0,.12);box-shadow:0 8px 24px rgba(255,234,0,.1)}
+.gb-back{border-color:rgba(123,0,170,.5);color:#cc66ff;background:rgba(123,0,170,.12)}
+.gb-back:hover{border-color:rgba(123,0,170,.8);background:rgba(123,0,170,.22);box-shadow:0 8px 24px rgba(123,0,170,.2)}
 .tabs-row{display:flex;gap:4px;padding:5px;background:rgba(0,0,0,.3);border-radius:12px;border:1px solid var(--bdp);margin-bottom:20px}
 .tab-btn{flex:1;padding:10px 12px;background:transparent;border:none;border-radius:8px;color:var(--t3);font-family:'Orbitron',monospace;font-size:8.5px;font-weight:700;letter-spacing:1.5px;cursor:pointer;transition:all .25s;white-space:nowrap;text-align:center}
 .tab-btn:hover{color:var(--t2);background:rgba(234,255,0,.08)}
@@ -181,7 +181,7 @@ body{font-family:'Rajdhani',sans-serif;background:var(--bg0);color:var(--t1);min
             <button class="gen-btn gb-agr" onclick="doGenerate('agressivo')">Agressivo</button>
             <button class="gen-btn gb-bal" onclick="doGenerate('balanceado')">Balanceado</button>
             <button class="gen-btn gb-def" onclick="doGenerate('defensivo')">Defensivo</button>
-            <button class="gen-btn gb-pack" onclick="doGeneratePack()">Pack</button>
+            <button class="gen-btn gb-back" onclick="voltarBypass()">◀ Voltar</button>
           </div>
         </div>
       </div>
@@ -234,6 +234,10 @@ function renderHistory(){if(!history.length){document.getElementById('histDispla
 window.showHistConfig=(i)=>{if(history[i]){curCfg=history[i];renderConfig(history[i]);switchTab('sensi');}};
 function copyConfig(){if(!curCfg)return;const t=`DEV WILL TECHX — ${curCfg.brand} (${curCfg.hz}Hz)\n${curCfg.type.toUpperCase()}\n\nGeral: ${curCfg.geral}\nPonto Vermelho: ${curCfg.ponto}\n2X: ${curCfg.dois}\n4X: ${curCfg.quatro}\nAWM: ${curCfg.awm}\nOlhadinha: ${curCfg.olha}\nDPI: ${curCfg.dpi||0}\nBotão: ${curCfg.botao}`;navigator.clipboard.writeText(t).catch(()=>{const ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);});toast('Configuração copiada!','ok');}
 function switchTab(tab){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');document.getElementById(tab+'-tab').classList.add('active');}
+function voltarBypass(){
+  if(window.history.length>1){window.history.back();}
+  else{try{Android.finish();}catch(e){window.close();}}
+}
 </script>
 </body>
 </html>

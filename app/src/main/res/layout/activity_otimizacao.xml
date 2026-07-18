@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050500">
+
+    <!-- FUNDO gradiente sutil -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_volpp"
+        android:alpha="0.18" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ══ HEADER ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:background="#EE060600"
+            android:elevation="6dp">
+
+            <Button
+                android:id="@+id/btnOtimVoltar"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="◀"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_clear"
+                android:stateListAnimator="@null"
+                android:padding="0dp" />
+
+            <!-- ícone hexagonal -->
+            <TextView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:text="⚡"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/ic_hex_bg"
+                android:layout_marginStart="10dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTIMIZADOR FF"
+                    android:textColor="#EAFF00"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEV WILL TECHX  ·  Free Fire &amp; FF MAX"
+                    android:textColor="#4a4720"
+                    android:textSize="9sp"
+                    android:fontFamily="monospace" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvOtimStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRONTO"
+                android:textColor="#EAFF00"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.1" />
+
+        </LinearLayout>
+
+        <!-- linha decorativa -->
+        <View android:layout_width="match_parent" android:layout_height="1.5dp"
+            android:background="#BF00FF" />
+
+        <!-- ══ CARDS DE AÇÃO ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:background="#BB060600"
+            android:gravity="center">
+
+            <!-- Card OTIMIZAR -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_otim_bg"
+                android:padding="14dp"
+                android:gravity="center"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🚀"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OTIMIZAR"
+                    android:textColor="#EAFF00"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.1"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="54 comandos"
+                    android:textColor="#4a4720"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp" />
+
+                <Button
+                    android:id="@+id/btnAplicarOtimizacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="APLICAR"
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_primary"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+            <!-- Card RESETAR -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/card_reset_bg"
+                android:padding="14dp"
+                android:gravity="center"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔄"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RESETAR"
+                    android:textColor="#CC66FF"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.1"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reverte tudo"
+                    android:textColor="#4a4720"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:layout_marginTop="2dp" />
+
+                <Button
+                    android:id="@+id/btnResetOtimizacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="RESETAR"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/btn_clear"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- linha divisória -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#181200" />
+
+        <!-- ══ BARRA DE PROGRESSO ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"
+            android:background="#AA060600">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="root@devwill:~/ "
+                android:textColor="#00AA22"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvContador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/0"
+                android:textColor="#EAFF00"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressOtimizacao"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="6dp"
+                android:layout_weight="1"
+                android:progressDrawable="@drawable/progress_otim"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <!-- ══ TERMINAL LOG ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#BB060600"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OUTPUT"
+                android:textColor="#EAFF00"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.2" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:background="#22EAFF00"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollOtimLog"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#CC000000"
+            android:padding="12dp"
+            android:scrollbars="none">
+
+            <TextView
+                android:id="@+id/tvOtimLog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text=""
+                android:textColor="#CCCCCC"
+                android:textSize="10.5sp"
+                android:lineSpacingExtra="3dp" />
+
+        </ScrollView>
+
+        <!-- rodapé -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EE060600"
+            android:paddingVertical="6dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚡ DEV WILL TECHX  ·  Otimizador Free Fire"
+                android:textColor="#7B00AA"
+                android:textSize="9sp"
+                android:fontFamily="monospace" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

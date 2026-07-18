@@ -2,6 +2,7 @@ package com.replayx.app.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.webkit.JavascriptInterface
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -11,6 +12,13 @@ import com.replayx.app.R
 class SensiActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
+
+    inner class AndroidBridge {
+        @JavascriptInterface
+        fun finish() {
+            this@SensiActivity.finish()
+        }
+    }
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +39,7 @@ class SensiActivity : AppCompatActivity() {
             displayZoomControls = false
         }
 
+        webView.addJavascriptInterface(AndroidBridge(), "Android")
         webView.webViewClient = WebViewClient()
         webView.loadUrl("file:///android_asset/sensi.html")
     }
