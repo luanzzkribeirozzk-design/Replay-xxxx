@@ -71,6 +71,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="4dp" />
 
+    </LinearLayout>
+
     <com.replayx.app.ui.ParticleView
         android:id="@+id/particleView"
         android:layout_width="match_parent"
