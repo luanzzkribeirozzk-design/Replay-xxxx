@@ -148,13 +148,15 @@
                 <Button
                     android:id="@+id/btnAplicarOtimizacao"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="46dp"
                     android:text="APLICAR"
                     android:textColor="#000000"
-                    android:textSize="12sp"
+                    android:textSize="12.5sp"
+                    android:letterSpacing="0.04"
                     android:textStyle="bold"
                     android:background="@drawable/btn_primary"
                     android:stateListAnimator="@null"
+                    android:elevation="3dp"
                     android:layout_marginTop="10dp" />
 
             </LinearLayout>
@@ -203,13 +205,15 @@
                 <Button
                     android:id="@+id/btnResetOtimizacao"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="46dp"
                     android:text="RESETAR"
                     android:textColor="#FFFFFF"
-                    android:textSize="12sp"
+                    android:textSize="12.5sp"
+                    android:letterSpacing="0.04"
                     android:textStyle="bold"
-                    android:background="@drawable/btn_clear"
+                    android:background="@drawable/btn_reset"
                     android:stateListAnimator="@null"
+                    android:elevation="3dp"
                     android:layout_marginTop="10dp" />
 
             </LinearLayout>
