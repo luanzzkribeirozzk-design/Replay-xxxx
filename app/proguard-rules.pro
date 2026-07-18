@@ -9,7 +9,6 @@
 # Achata todas as classes ofuscadas num único pacote sem nome,
 # removendo qualquer indício da estrutura original de pacotes
 -repackageclasses ''
--flattenpackagehierarchy ''
 
 # Remove TODOS os logs - ninguém vê nada no logcat
 -assumenosideeffects class android.util.Log {
