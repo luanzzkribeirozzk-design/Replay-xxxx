@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import com.replayx.app.security.C;
 import com.replayx.app.security.IntegrityCheck;
+import com.replayx.app.security.TamperGuard;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -53,6 +54,12 @@ public class LoginActivity extends AppCompatActivity {
 
         // Verificação de integridade do APK
         if (!IntegrityCheck.isValid(this)) {
+            finish();
+            return;
+        }
+
+        // Detecta se o APK foi remontado/modificado (hash do DEX)
+        if (!TamperGuard.check(this)) {
             finish();
             return;
         }
