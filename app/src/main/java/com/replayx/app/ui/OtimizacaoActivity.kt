@@ -227,7 +227,7 @@ class OtimizacaoActivity : AppCompatActivity() {
         // btnVoltar continua sempre habilitado: o usuário pode sair a
         // qualquer momento, mesmo com comandos em execução.
         progressBar.visibility = if (busy) View.VISIBLE else View.INVISIBLE
-        if (busy) tvStatus.text = "⚙ EXECUTANDO..."
+        if (busy) tvStatus.text = "EXECUTANDO..."
     }
 
     private fun log(msg: String, isSystem: Boolean = false, isOk: Boolean = false, isFail: Boolean = false) {

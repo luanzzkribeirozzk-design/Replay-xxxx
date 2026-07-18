@@ -43,8 +43,10 @@
             <TextView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:text="⚡"
-                android:textSize="18sp"
+                android:text="W"
+                android:textColor="#EAFF00"
+                android:textStyle="bold"
+                android:textSize="16sp"
                 android:gravity="center"
                 android:background="@drawable/ic_hex_bg"
                 android:layout_marginStart="10dp" />
@@ -323,7 +325,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="⚡ DEV WILL TECHX  ·  Otimizador Free Fire"
+                android:text="DEV WILL TECHX  ·  Otimizador Free Fire"
                 android:textColor="#7B00AA"
                 android:textSize="9sp"
                 android:fontFamily="monospace" />

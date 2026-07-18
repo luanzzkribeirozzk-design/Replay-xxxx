@@ -13,8 +13,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/color_btn_green"
-        android:text="🟢"
-        android:textSize="24sp"
         android:layout_margin="8dp" />
 
     <Button
@@ -22,8 +20,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/color_btn_purple"
-        android:text="🟣"
-        android:textSize="24sp"
         android:layout_margin="8dp" />
 
     <Button
@@ -31,8 +27,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/color_btn_blue"
-        android:text="🔵"
-        android:textSize="24sp"
         android:layout_margin="8dp" />
 
     <Button
@@ -40,8 +34,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/color_btn_red"
-        android:text="🔴"
-        android:textSize="24sp"
         android:layout_margin="8dp" />
 
 </LinearLayout>

@@ -26,6 +26,7 @@ class SensiActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sensi)
 
         webView = findViewById(R.id.webViewSensi)
+        findViewById<android.widget.Button>(R.id.btnSensiVoltar).setOnClickListener { finish() }
 
         webView.settings.apply {
             javaScriptEnabled = true
